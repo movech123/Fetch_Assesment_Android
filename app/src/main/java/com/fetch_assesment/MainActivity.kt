@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.widget.ImageView
+import android.widget.TextView
 
 class MainActivity :  AppCompatActivity() {
 
@@ -21,11 +22,12 @@ class MainActivity :  AppCompatActivity() {
     private val binding get() = _binding!!
     private val viewModel: AppViewModel by viewModels()
     private val adapter = ItemViewAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = binding.toolbar
         toolbar.setBackgroundColor(Color.rgb(251,168,25))
         val logo = findViewById<ImageView>(R.id.logoImage)
         setupRecyclerView()
@@ -106,11 +108,13 @@ class MainActivity :  AppCompatActivity() {
             binding.logoImage.visibility = View.VISIBLE
             binding.recyclerView.visibility = View.GONE
             binding.toolbar.visibility = View.GONE
+            binding.toolbarTitle.visibility = View.GONE
         } else {
             // Show the main screen
             binding.logoImage.visibility = View.GONE
             binding.recyclerView.visibility = View.VISIBLE
             binding.toolbar.visibility = View.VISIBLE
+            binding.toolbarTitle.visibility = View.VISIBLE
         }
     }
 

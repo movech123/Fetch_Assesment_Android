@@ -12,15 +12,24 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:visibility="gone"
-            app:title="@string/toolbar_title"
-            app:titleTextColor="@android:color/black" />
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toolbar_title"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
 
