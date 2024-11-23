@@ -45,7 +45,7 @@ To build and run the app, follow these steps:
     }
 4. Check for the correct dependencies in the build.gradle.kts(App) file:
    ```kotlin
-   ependencies {
+   dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
