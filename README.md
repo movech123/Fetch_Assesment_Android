@@ -26,7 +26,7 @@ To build and run the app, follow these steps:
 1. Clone this repository:
    ```bash
    git clone https://github.com/your-username/fetch-rewards-coding-exercise.git
-2. Rebuild Gradle and edit any build configurations to fit your emulator:
+2. Rebuild Gradle and edit any build configurations in build.gradle.kts to fit your emulator:
    ```kotlin
    android {
     namespace = "com.fetch_assesment"
