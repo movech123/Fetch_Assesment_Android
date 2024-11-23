@@ -23,10 +23,12 @@ The app fetches a JSON dataset from the URL:
 
 To build and run the app, follow these steps:
 
-1. Clone this repository:
+1. Clone this repository in the src folder of your IDE:
    ```bash
    git clone https://github.com/movech123/Fetch_Assesment_Android.git
-2. Rebuild Gradle and edit any build configurations in build.gradle.kts to fit your emulator:
+2. Open the project from the folder Fetch_Assesment_Android and make sure the file contents are in the folder
+   
+3. Rebuild Gradle and edit any build configurations in build.gradle.kts to fit your emulator:
    ```kotlin
    android {
     namespace = "com.fetch_assesment"
