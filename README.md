@@ -26,6 +26,24 @@ To build and run the app, follow these steps:
 1. Clone this repository:
    ```bash
    git clone https://github.com/your-username/fetch-rewards-coding-exercise.git
+2. Rebuild Gradle oe edit any build configurations to fit your emulator:
+   ```kotlin
+   android {
+    namespace = "com.fetch_assesment"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.fetch_assesment"
+        minSdk = 34
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+4. Click the green run button on the top
+   
 # Technical Implementation
 
 ## Network Stack
@@ -61,6 +79,8 @@ To build and run the app, follow these steps:
 - Implement offline caching to save unchanged data
 - Add pull-to-refresh functionality for new data
 - Add search, edit, insert, and delete functionality
+- Add a refresh button if the server returns a non 200 response to retry
+- Prompt the user to enable internet if offline
 
 ## Demo
 https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
