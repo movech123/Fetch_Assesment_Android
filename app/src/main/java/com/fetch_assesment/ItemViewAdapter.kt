@@ -1,11 +1,20 @@
 package com.fetch_assesment
 
+import android.graphics.Color
+import android.graphics.Typeface
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.StyleSpan
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.LinearLayout
+import android.view.ViewGroup.MarginLayoutParams
 
 // Adapter to display the list of items through a recycler view
 class ItemViewAdapter : RecyclerView.Adapter<ItemViewAdapter.GroupViewHolder>() {
@@ -47,16 +56,42 @@ class ItemViewAdapter : RecyclerView.Adapter<ItemViewAdapter.GroupViewHolder>() 
 
         fun bind(listId: Int, items: List<Item>, isExpanded: Boolean) {
             listIdHeader.text = "List ID: $listId"
+            listIdHeader.textSize = 20f
             itemsContainer.removeAllViews()
 
             // Format and add child items
             items.forEach { item ->
-                val itemView = TextView(itemView.context).apply {
-                    text = "  • ${item.name} (ID: ${item.id})"
-                    textSize = 16f
-                    setPadding(32, 8, 0, 8)
+                val itemCard = CardView(itemView.context).apply {
+                    val params = MarginLayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    params.setMargins(0, 12, 12, 12) // Set margins here
+                    layoutParams = params
+
+                    setCardBackgroundColor(Color.LTGRAY)
+                    radius = 32f
+                    cardElevation = 4f
                 }
-                itemsContainer.addView(itemView)
+
+                val itemContent = TextView(itemView.context).apply {
+                    text = "ID: ${item.id}\nName: ${item.name}"
+                    val spannable = SpannableString(text).apply {
+                        setSpan(StyleSpan(Typeface.BOLD), 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) // Bold "ID:"
+                        setSpan(StyleSpan(Typeface.BOLD), text.indexOf("Name:"), text.indexOf("Name:") + 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) // Bold "Name:"
+                    }
+                    this.text = spannable
+                    textSize = 14f
+                    setPadding(12,12, 16, 12)
+                    gravity = Gravity.CENTER_VERTICAL
+                    layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        150
+                    )
+                }
+
+                itemCard.addView(itemContent)
+                itemsContainer.addView(itemCard)
             }
 
             // Toggle visibility of item details based on expanded state
