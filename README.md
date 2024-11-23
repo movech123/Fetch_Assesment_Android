@@ -58,9 +58,8 @@ To build and run the app, follow these steps:
 
 ## Future Improvements
 
-- Implement offline caching
-- Add pull-to-refresh functionality
-- Implement dark mode support
+- Implement offline caching to save unchanged data
+- Add pull-to-refresh functionality for new data
 - Add search, edit, insert, and delete functionality
 
 ## Demo
