@@ -28,7 +28,7 @@ To build and run the app, follow these steps:
    git clone https://github.com/movech123/Fetch_Assesment_Android.git
 2. Open the project from the folder Fetch_Assesment_Android and make sure the file contents are in the folder
    
-3. Rebuild Gradle and edit any build configurations in build.gradle.kts to fit your emulator:
+3. Rebuild Gradle and edit any build configurations in build.gradle.kts(App) to fit your emulator:
    ```kotlin
    android {
     namespace = "com.fetch_assesment"
@@ -43,8 +43,28 @@ To build and run the app, follow these steps:
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+4. Check for the correct dependencies in the build.gradle.kts(App) file:
+   ```kotlin
+   ependencies {
 
-4. Click the green run button on the top
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.converter.moshi)
+    implementation(libs.retrofit)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+}
+
+5. Click the green run button on the top
    
 # Technical Implementation
 
