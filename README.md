@@ -63,3 +63,5 @@ To build and run the app, follow these steps:
 - Implement dark mode support
 - Add search, edit, insert, and delete functionality
 
+## Demo
+https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
