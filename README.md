@@ -111,3 +111,7 @@ https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
 - Broke the link to the AWS server to simulate a failed API request
 
 https://github.com/user-attachments/assets/68dfacdd-171b-4434-8ddd-068ed7d4a32b
+
+- Working link with no internet
+
+[Only_No_Internet.webm](https://github.com/user-attachments/assets/390d0157-968b-4056-a0f9-50d9125f90dd)
