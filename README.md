@@ -101,8 +101,6 @@ To build and run the app, follow these steps:
 - Implement offline caching to save unchanged data
 - Add pull-to-refresh functionality for new data
 - Add search, edit, insert, and delete functionality
-- Add a refresh button if the server returns a non 200 response to retry
-- Prompt the user to enable internet if offline
 
 ## Demo
 https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
