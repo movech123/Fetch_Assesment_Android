@@ -66,7 +66,7 @@ To build and run the app, follow these steps:
 
 5. Click the green run button on the top
 
-6. Navigate to src/test/AppViewModelTest.kt to test the sort/filtering functionality with JUnit5
+6. Navigate to src/test/ to test the sort/filtering functionality with JUnit5
    
 # Technical Implementation
 
