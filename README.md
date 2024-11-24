@@ -106,3 +106,8 @@ To build and run the app, follow these steps:
 
 ## Demo
 https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
+
+## Edge Case Demo 
+- Broke the link to the AWS server to simulate a failed API request
+
+https://github.com/user-attachments/assets/68dfacdd-171b-4434-8ddd-068ed7d4a32b
