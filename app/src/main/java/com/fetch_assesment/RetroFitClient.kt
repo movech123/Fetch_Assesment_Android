@@ -8,7 +8,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 // Retrofit client to handle network requests
-
+sealed class APIResult<out T> {
+    data class Success<out T>(val data: T) : APIResult<T>()
+    data class Error(val message: String) : APIResult<Nothing>()
+}
 object RetroFitClient {
     private const val BASE_URL = "https://fetch-hiring.s3.amazonaws.com/"
     private val logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

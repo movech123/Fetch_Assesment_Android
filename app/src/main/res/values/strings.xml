@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Fetch_Take_Home_Assesment</string>
-    <string name="toolbar_title">Results</string>"
+    <string name="toolbar_title">Results</string>
+    <string name="retry">Retry</string>
+
 </resources>

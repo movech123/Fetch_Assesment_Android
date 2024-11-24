@@ -4,17 +4,19 @@ import android.animation.Animator
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.fetch_assesment.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
-import androidx.appcompat.widget.Toolbar
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
+import android.util.Log
 import android.widget.ImageView
-import android.widget.TextView
+import android.widget.Toast
+
+
 
 class MainActivity :  AppCompatActivity() {
 
@@ -30,9 +32,16 @@ class MainActivity :  AppCompatActivity() {
         val toolbar = binding.toolbar
         toolbar.setBackgroundColor(Color.rgb(251,168,25))
         val logo = findViewById<ImageView>(R.id.logoImage)
-        setupRecyclerView()
-        loadData()
 
+        // Check for network connectivity before attempting to fetch data
+        if (isNetworkAvailable()) {
+            setupRecyclerView()
+            loadData()
+        } else {
+            // If there's no network connection, navigate to NoConnectionActivity
+            startActivity(Intent(this, NoConnectionActivity::class.java))
+            finish() // Close MainActivity to prevent the user from staying on the current screen
+        }
 
     }
     private fun playPopOutAnimation(logo: ImageView, onComplete: () -> Unit) {
@@ -79,7 +88,6 @@ class MainActivity :  AppCompatActivity() {
     private fun setupRecyclerView() {
         binding.recyclerView.adapter = adapter
     }
-
     private fun loadData() {
         // Show the loading screen with logo initially
         switchScreen(isLoading = true)
@@ -97,10 +105,18 @@ class MainActivity :  AppCompatActivity() {
                     }
                 }, 1000) // 1-second delay for a cooler animation simulation since the data loads pretty fast
             } catch (e: Exception) {
-                Toast.makeText(this@MainActivity, "Error loading data: ${e.message}", Toast.LENGTH_LONG).show()
+                    // if API request fails, navigate to NoConnectionActivity
+                    val intent = Intent(this@MainActivity, NoConnectionActivity::class.java).apply {
+                        putExtra("error_message", "Failed to load data.")
+                    }
+                    startActivity(intent)
+                    finish()
             }
         }
     }
+
+
+
 
     private fun switchScreen(isLoading: Boolean) {
         if (isLoading) {
@@ -117,7 +133,12 @@ class MainActivity :  AppCompatActivity() {
             binding.toolbarTitle.visibility = View.VISIBLE
         }
     }
-
+    // Function to check if the device is connected to the internet
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
+    }
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
