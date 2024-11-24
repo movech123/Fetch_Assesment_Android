@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 class AppViewModel : ViewModel() {
 
 
-    suspend fun fetchItems(): List<Map.Entry<Int, List<Item>>> {
-        val response = RetroFitClient.fetchService.getItems()
+    suspend fun fetchItems(fetchService: FetchAPIService = RetroFitClient.fetchService): List<Map.Entry<Int, List<Item>>>{
+        val response = fetchService.getItems()
 
         // Filter out items with null or blank names
         val filteredItems = response.filter { !it.name.isNullOrBlank() }
