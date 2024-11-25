@@ -46,25 +46,30 @@ To build and run the app, follow these steps:
 4. Check for the correct dependencies in the build.gradle.kts(App) file:
    ```kotlin
    dependencies {
-
+    implementation(libs.kotlinx.coroutines.test)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
     implementation(libs.converter.moshi)
     implementation(libs.retrofit)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.junit)
+    implementation(libs.androidx.junit)
+    implementation(libs.androidx.espresso.core)
+    implementation(libs.junit.jupiter)
+    implementation(libs.mockito.kotlin)
+
 }
 
 5. Click the green run button on the top
+
+6. Navigate to src/test/ to test the sort/filtering functionality with JUnit5
    
 # Technical Implementation
 
@@ -101,8 +106,8 @@ To build and run the app, follow these steps:
 - Implement offline caching to save unchanged data
 - Add pull-to-refresh functionality for new data
 - Add search, edit, insert, and delete functionality
-- Add a refresh button if the server returns a non 200 response to retry
-- Prompt the user to enable internet if offline
+- Unit Testing for more specific API failures
+- If there were more features added then add the no connection logic to the view model for better UI lifecycle instead of having its own activity
 
 ## Demo
 https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
