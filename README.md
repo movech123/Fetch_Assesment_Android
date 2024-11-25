@@ -107,6 +107,7 @@ To build and run the app, follow these steps:
 - Add pull-to-refresh functionality for new data
 - Add search, edit, insert, and delete functionality
 - Unit Testing for more specific API failures
+- If there were more features added then add the no connection logic to the view model for better UI lifecycle instead of having its own activity
 
 ## Demo
 https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
