@@ -75,7 +75,7 @@ class ItemViewAdapter : RecyclerView.Adapter<ItemViewAdapter.GroupViewHolder>() 
                 }
 
                 val itemContent = TextView(itemView.context).apply {
-                    text = "ID: ${item.id}\nName: ${item.name}"
+                    text = "ID: ${item.id}   Name: ${item.name}"
                     val spannable = SpannableString(text).apply {
                         setSpan(StyleSpan(Typeface.BOLD), 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) // Bold "ID:"
                         setSpan(StyleSpan(Typeface.BOLD), text.indexOf("Name:"), text.indexOf("Name:") + 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) // Bold "Name:"
@@ -83,11 +83,12 @@ class ItemViewAdapter : RecyclerView.Adapter<ItemViewAdapter.GroupViewHolder>() 
                     // Set the spannable string as add padding and styling
                     this.text = spannable
                     textSize = 14f
-                    setPadding(12,12, 16, 12)
+                    setPadding(16,12, 16, 12)
                     gravity = Gravity.CENTER_VERTICAL
                     layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
-                        150
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+
                     )
                 }
 
