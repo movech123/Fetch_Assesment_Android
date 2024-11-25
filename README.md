@@ -110,7 +110,7 @@ To build and run the app, follow these steps:
 - If there were more features added then add the no connection logic to the view model for better UI lifecycle instead of having its own activity
 
 ## Demo
-https://github.com/user-attachments/assets/af79aaf8-fffa-43c6-9d71-1bb124a35104
+https://github.com/user-attachments/assets/fe90f6df-1f83-4679-a817-b59cda799def
 
 ## Edge Case Demo 
 - Broke the link to the AWS server to simulate a failed API request
