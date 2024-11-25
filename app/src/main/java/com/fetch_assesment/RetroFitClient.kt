@@ -13,7 +13,7 @@ sealed class APIResult<out T> {
     data class Error(val message: String) : APIResult<Nothing>()
 }
 object RetroFitClient {
-    private const val BASE_URL = "https://fetch-hiring.s3.amazonaws.com/"
+    private const val BASE_URL = "https://fetch-hiring.s3.amazonaws.com"
     private val logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     // Creating a Network client to handle requests

@@ -80,6 +80,7 @@ class ItemViewAdapter : RecyclerView.Adapter<ItemViewAdapter.GroupViewHolder>() 
                         setSpan(StyleSpan(Typeface.BOLD), 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) // Bold "ID:"
                         setSpan(StyleSpan(Typeface.BOLD), text.indexOf("Name:"), text.indexOf("Name:") + 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) // Bold "Name:"
                     }
+                    // Set the spannable string as add padding and styling
                     this.text = spannable
                     textSize = 14f
                     setPadding(12,12, 16, 12)
